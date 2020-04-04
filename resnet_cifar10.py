@@ -100,6 +100,5 @@ def main(m):
 
 
 if __name__ == '__main__':
-    for m in np.arange(5):
-        main(m)
-    ploting(list_loss_train, list_loss_test)
+    main(m=4)
+    #ploting(list_loss_train, list_loss_test)
