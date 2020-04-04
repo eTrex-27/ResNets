@@ -84,11 +84,11 @@ def main(m):
         adjust_learning_rate(epoch, opt, optimizer)
         print("==> training...")
 
-        train_error, train_loss, list_loss_train[m] = train(epoch, train_loader, model, criterion, optimizer)
+        train_error, train_loss = train(epoch, train_loader, model, criterion, optimizer, list_loss_train[m])
         print('epoch {} | train_loss: {}'.format(epoch, train_loss))
         print('epoch {} | train_error: {}'.format(epoch, train_error))
 
-        test_error, test_loss, list_loss_test[m] = test(test_loader, model, criterion)
+        test_error, test_loss = test(test_loader, model, criterion, list_loss_test[m])
         print('epoch {} | test_loss: {}'.format(epoch, test_loss))
         print('epoch {} | test_error: {}'.format(epoch, test_error))
         print('iterations: {}'.format(epoch * len(train_loader)))
