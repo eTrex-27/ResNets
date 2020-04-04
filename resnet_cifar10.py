@@ -18,7 +18,7 @@ def parser_params():
     parser = argparse.ArgumentParser('argument for training')
     parser.add_argument('--batch_size', type=int, default=128, help='batch_size')
     parser.add_argument('--num_workers', type=int, default=8, help='num of workers to use')
-    parser.add_argument('--epochs', type=int, default=1, help='number of training epochs')
+    parser.add_argument('--epochs', type=int, default=164, help='number of training epochs')
 
     # optimization
     parser.add_argument('--learning_rate', type=float, default=0.1, help='learning rate')
