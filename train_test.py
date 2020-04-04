@@ -2,9 +2,8 @@ import torch
 from utils import AverageMeter, accuracy
 
 
-def train(epoch, train_loader, model, criterion, optimizer):
+def train(epoch, train_loader, model, criterion, optimizer, errors_train):
     model.train()
-    errors_train = []
     losses = AverageMeter()
     error = AverageMeter()
 
@@ -32,11 +31,10 @@ def train(epoch, train_loader, model, criterion, optimizer):
                   'Loss {loss.avg:.4f}\t'
                   'Error {error.avg:.3f}'.format(epoch, idx, len(train_loader), loss=losses, error=error))
 
-    return error.avg, losses.avg, errors_train
+    return error.avg, losses.avg
 
 
-def test(test_loader, model, criterion):
-    errors_test = []
+def test(test_loader, model, criterion, errors_test):
     losses = AverageMeter()
     error = AverageMeter()
 
@@ -63,4 +61,4 @@ def test(test_loader, model, criterion):
                       'Loss {loss.avg:.4f}\t'
                       'Error {error.avg:.3f}'.format(idx, len(test_loader), loss=losses, error=error))
 
-    return error.avg, losses.avg, errors_test
+    return error.avg, losses.avg
